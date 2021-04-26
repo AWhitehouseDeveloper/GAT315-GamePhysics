@@ -13,4 +13,14 @@ public static class Utilities
 
         return point;
     }
+
+    public static Vector2 SpringForce(Vector2 source, Vector2 destination, float restLength, float k)
+    {
+        Vector2 direction = destination - source;
+        float length = direction.magnitude;
+        float x = length - restLength;
+
+        //returning force
+        return (-k * x) * direction.normalized;
+    }
 }

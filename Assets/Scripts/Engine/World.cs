@@ -19,6 +19,7 @@ public class World : MonoBehaviour
 
     public Vector2 Gravity { get { return new Vector2(0, gravity.value); } }
     public List<Body> bodies { get; set; } = new List<Body>();
+    public List<Spring> springs { get; set; } = new List<Spring>();
 
     float timeAccumulator = 0;
     float fixedDeltaTime { get{ return 1.0f / fixedFPS.value; }}
@@ -42,6 +43,7 @@ public class World : MonoBehaviour
         if (!simulate.value) return;
 
         GravitationalForce.ApplyForce(bodies, gravitation.value);
+        springs.ForEach(spring => spring.ApplyForce());
 
         //bodies.ForEach(body => body.shape.color = Color.red);
 
