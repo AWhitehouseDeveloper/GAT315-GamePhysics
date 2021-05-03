@@ -40,6 +40,7 @@ public class World : MonoBehaviour
         fpsAverage = (fpsAverage * smoothing) + (fps * (1.0f - smoothing));
         fpsText.value = "FPS: " + fpsAverage.ToString("F1");
 
+        springs.ForEach(spring => spring.Draw());
         if (!simulate.value) return;
 
         GravitationalForce.ApplyForce(bodies, gravitation.value);
