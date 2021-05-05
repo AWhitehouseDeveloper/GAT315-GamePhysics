@@ -44,6 +44,7 @@ public class Connector : Action
 	{
 		if (source != null)
 		{
+		Debug.Log("Connector");
 			Vector2 position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			Lines.Instance.AddLine(source.position, position, Color.white, 0.1f);
 		}
