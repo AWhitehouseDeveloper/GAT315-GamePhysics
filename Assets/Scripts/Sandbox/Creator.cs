@@ -39,12 +39,12 @@ public class Creator : Action
             if(gameObject.TryGetComponent<Body>(out Body body)){
                 Vector2 force = Random.insideUnitSphere.normalized * speed;
                 
-                body.AddForce(force, Body.eForceMode.Velocity);
                 body.damping = damping;
                 body.shape.size = size;
                 body.shape.density = density;
                 body.restitution = restitution;
                 body.type = (Body.eType)bodyType.value;
+                body.AddForce(force, Body.eForceMode.Velocity);
                 World.Instance.bodies.Add(body);
             }
         }

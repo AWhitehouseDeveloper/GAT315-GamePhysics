@@ -12,7 +12,7 @@ public class ContactSolver : MonoBehaviour
             float totalInverseMass = contact.bodyA.inverseMass + contact.bodyB.inverseMass;
             Vector2 seperation = contact.normal * contact.depth / totalInverseMass;
             contact.bodyA.position = contact.bodyA.position + seperation * contact.bodyA.inverseMass;
-            contact.bodyB.position = contact.bodyB.position + -seperation * contact.bodyB.inverseMass;
+            contact.bodyB.position = contact.bodyB.position -seperation * contact.bodyB.inverseMass;
 
             //Impulse = amount of force to reflect
             //collision impulse
